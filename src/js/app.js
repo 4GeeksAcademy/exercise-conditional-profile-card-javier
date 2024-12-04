@@ -28,19 +28,79 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  let name;
+  if (variables.name === null) {
+    name = `Nombre`;
+  } else {
+    name = `${variables.name}`;
+  }
+  let lastName;
+  if (variables.lastName === null) {
+    lastName = `Apellido`;
+  } else {
+    lastName = `${variables.lastName}`;
+  }
+  let role;
+  if (variables.role === null) {
+    role = `Elige tu rol`;
+  } else {
+    role = `${variables.role}`;
+  }
+  let city;
+  if (variables.city === null) {
+    city = `Elige tu ciudad`;
+  } else {
+    city = `${variables.city}`;
+  }
+  let country;
+  if (variables.country === null) {
+    country = `Elige tu pais`;
+  } else {
+    country = `${variables.country}`;
+  }
+  let socialMediaPosition;
+  if (variables.socialMediaPosition === "position-left") {
+    socialMediaPosition = `position-left`;
+  } else {
+    socialMediaPosition = `position-right`;
+  }
+  let twitter;
+  if (variables.twitter === null) {
+    twitter = `https://twitter.com/4geeksacademy`;
+  } else {
+    twitter = `${variables.twitter}`;
+  }
+  let github;
+  if (variables.github === null) {
+    github = `https://github.com/4geeksacademy`;
+  } else {
+    github = `${variables.github}`;
+  }
+  let linkedin;
+  if (variables.linkedin === null) {
+    linkedin = `https://linkedin.com/school/4geeksacademy`;
+  } else {
+    linkedin = `${variables.linkedin}`;
+  }
+  let instagram;
+  if (variables.instagram === null) {
+    instagram = `https://instagram.com/4geeksacademy`;
+  } else {
+    instagram = `${variables.instagram}`;
+  }
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${name} ${lastName}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country}</h3>
+          <ul class="${socialMediaPosition}">
+            <li><a href="${twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="${linkedin}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${instagram}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
